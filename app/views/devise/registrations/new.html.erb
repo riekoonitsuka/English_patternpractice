@@ -1,0 +1,27 @@
+<h1>Sign up</h1>
+
+<%= form_with model: @user, url: user_registration_path do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: "hover:cursor-pointer flex items-center justify-center w-full px-10 py-3 font-medium text-center text-[#172c66] transition duration-500 ease-in-out transform bg-[#ffd803] rounded-xl hover:bg-[#bae8e8] focus:outline-none", data: {"turbo" => false} %>
+  </div>
+<% end %>
