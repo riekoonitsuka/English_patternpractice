@@ -12,6 +12,7 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
+    flash[:success] = "ログインしました"
   end
 
   # DELETE /resource/sign_out

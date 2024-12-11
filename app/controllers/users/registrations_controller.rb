@@ -14,10 +14,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user) # ユーザーをログインさせる
-      flash[:success] = "User successfully created."
+      flash[:success] = "ユーザー登録が完了しました"
       redirect_to root_path
     else
-      flash.now[:alert] = "User registration failed."
+      flash.now[:alert] = "ユーザー登録に失敗しました"
       render :new, status: :unprocessable_entity
     end
   end
