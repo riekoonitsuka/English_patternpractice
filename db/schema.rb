@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_10_011155) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_12_072324) do
+  create_table "practice_parts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "number"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "practices", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "basic_english_sentence"
+    t.string "basic_japanese_sentence"
+    t.string "question"
+    t.string "image"
+    t.string "difficulty_rating"
+    t.string "answer"
+    t.bigint "practice_part_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["practice_part_id"], name: "index_practices_on_practice_part_id"
+  end
+
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -33,4 +53,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_10_011155) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "practices", "practice_parts"
 end
