@@ -1,0 +1,29 @@
+  <!-- レッスン一覧 -->
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <% if @practice_parts.present? %>
+          <% @practice_parts.each do |board| %>
+            <div class="col-sm-12 col-lg-4 mb-3">
+              <div id="practice-id-<%= practice.id %>">
+                <div class="card">
+                  <%= image_tag "board_placeholder.png", class: "card-img-top", width: "300", height:"200" %>
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <h4 class="card-title">
+                        <%= link_to ractice_part.title, '#' %>
+                      </h4>
+                    </div>
+                    <p class="card-text">本文</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="mb-3">掲示板がありません</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
