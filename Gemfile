@@ -42,8 +42,9 @@ gem "pry-byebug"
 gem "carrierwave", "~> 2.0"
 gem "fog-aws"
 gem "dotenv-rails"
-gem "rails_admin"
 gem "cancancan"
+gem "rails_admin"
+gem "sassc-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -66,4 +67,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-gem "sassc-rails"
