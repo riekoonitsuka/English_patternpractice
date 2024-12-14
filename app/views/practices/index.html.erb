@@ -1,10 +1,11 @@
-<% @practices.each do |practice| %>
-    <%= practice.basic_english_sentence %>
-    <%= practice.basic_japanese_sentence %>
-    <%= practice.question %>
-    <%= image_tag practice.image_url %>
-    <%= practice.answer %>
-  <% end %>
-<button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 focus:outline-none focus:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-400 dark:bg-blue-800/30 dark:hover:bg-blue-800/20 dark:focus:bg-blue-800/20">
-  Button
-</button>
+<h1>基本文</h1>
+<p><%= @current_practice.basic_english_sentence %></p>
+<p><%= @current_practice.basic_japanese_sentence %></p>
+<h1>条件</h1>
+<p><%= @current_practice.question %></p>
+<p><%= image_tag @current_practice.image_url %></p>
+<div class="flex space-x-4">
+<p><%= link_to "Easy", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
+<p><%= link_to "Normal", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
+<p><%= link_to "Difficult", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
+</div>

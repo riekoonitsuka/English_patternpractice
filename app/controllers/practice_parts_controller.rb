@@ -1,14 +1,14 @@
 class PracticePartsController < ApplicationController
   def index
-    @practice_parts = Practice_part.includes(:practice).page(params[:page]).per(10) # 1ページあたり10件表示
+    @practice_parts = PracticePart.includes(:practice).page(params[:page]).per(10) # 1ページあたり10件表示
   end
 
   def new
-    @practice_parts = Practice_part.new
+    @practice_parts = PracticePart.new
   end
 
   def create
-    @practice_parts = Practice_part.new(practice_params)
+    @practice_parts = PracticePart.new(practice_params)
     if @practice.save
       redirect_to practice_parts_path, notice: "Practice was successfully created."
     else
@@ -17,15 +17,15 @@ class PracticePartsController < ApplicationController
   end
 
   def show
-    @practice_parts = Practice_part.find(params[:id])
+    @practice_parts = PracticePart.find(params[:id])
   end
 
   def edit
-    @practice_parts = Practice_part.find(params[:id])
+    @practice_parts = PracticePart.find(params[:id])
   end
 
   def update
-    @practice_parts = Practice_part.find(params[:id])
+    @practice_parts = PracticePart.find(params[:id])
     if @practice_parts.update(practice_params)
       redirect_to practice_parts_path(@practice_parts), notice: "Question was successfully updated."
     else

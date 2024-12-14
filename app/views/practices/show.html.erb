@@ -1,0 +1,13 @@
+<h1>基本文</h1>
+<p><%= @practice.basic_english_sentence %></p>
+<p><%= @practice.basic_japanese_sentence %></p>
+<h1>条件</h1>
+<p><%= @practice.question %></p>
+<p><%= image_tag @practice.image_url %></p>
+<h1>答え</h1>
+<p><%= @practice.answer %></p>
+<div class="flex space-x-4">
+  <p><%= link_to "Easy", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
+  <p><%= link_to "Normal", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
+  <p><%= link_to "Difficult", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
+</div>
