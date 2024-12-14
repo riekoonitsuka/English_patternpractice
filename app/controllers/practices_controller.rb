@@ -1,6 +1,12 @@
 class PracticesController < ApplicationController
   def index
-    @practices = Practice.includes(:practice_part).page(params[:page]).per(10) # 1ページあたり10件表示
+    @practices = Practice.includes(:practice_part)
+    @current_practice = @practices[params[:practice_index].to_i]
+    if params[:practice_index].to_i >= @practices.length
+      redirect_to action: :index, practice_index: 0
+    else
+    @next_practice_index = params[:practice_index].to_i + 1
+    end
   end
 
   def new
@@ -18,6 +24,9 @@ class PracticesController < ApplicationController
 
   def show
     @practice = Practice.find(params[:id])
+    @practices = Practice.all
+    current_index = @practices.index(@practice)
+    @next_practice_index = params[:practice_index].to_i + 1
   end
 
   def edit
