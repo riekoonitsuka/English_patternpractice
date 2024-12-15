@@ -1,11 +1,25 @@
-<h1>基本文</h1>
-<p><%= @current_practice.basic_english_sentence %></p>
-<p><%= @current_practice.basic_japanese_sentence %></p>
-<h1>条件</h1>
-<p><%= @current_practice.question %></p>
-<p><%= image_tag @current_practice.image_url %></p>
-<div class="flex space-x-4">
-<p><%= link_to "Easy", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
-<p><%= link_to "Normal", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
-<p><%= link_to "Difficult", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
+<div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th></th>
+        <th>Part</th>
+        <th>基本文</th>
+        <th>条件</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+      <% @practices.each do |practice| %>
+      <tr>
+        <th><%= practice.practice_part.number %></th>
+        <td><%= practice.practice_part.title %></td>
+        <td><%= practice.basic_english_sentence %></td>
+        <td><%= practice.question %></td>
+        <td><%= link_to "Play", practice_path(practice.id), method: :get, class: "btn" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

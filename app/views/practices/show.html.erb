@@ -1,13 +1,23 @@
-<h1>基本文</h1>
-<p><%= @practice.basic_english_sentence %></p>
+<tr>
+<th>基本文<th>
+<th><%= @practice.basic_english_sentence %><th>
+</tr>
+<tr>
+<th></th>
 <p><%= @practice.basic_japanese_sentence %></p>
-<h1>条件</h1>
-<p><%= @practice.question %></p>
+</tr>
+<tr>
+<th>条件<th>
+<th><%= @practice.question %><th>
+</tr>
 <p><%= image_tag @practice.image_url %></p>
-<h1>答え</h1>
-<p><%= @practice.answer %></p>
-<div class="flex space-x-4">
-  <p><%= link_to "Easy", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
-  <p><%= link_to "Normal", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
-  <p><%= link_to "Difficult", practices_path(practice_index: @next_practice_index), method: :get, class: "btn" %></p>
+<% if params[:answer] %>
+  <p><%= @practice.answer %></p>
+<% end %>
+<% if params[:answer] %>
+  <p><%= link_to "Next", practice_path(Practice.find_by(id: @practice.id+1)), method: :get, class: "btn" %></p>
+<% else %>
+  <div class="flex space-x-4">
+    <p><%= link_to "Answer", practice_path(@practice.id, answer: true), method: :get, class: "btn" %></p>
 </div>
+<% end %>
