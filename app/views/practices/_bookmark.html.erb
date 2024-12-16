@@ -1,0 +1,5 @@
+<% @practices.each do |practice| %>
+  <%= link_to bookmarks_path(practice_id: practice.id), id: "bookmark-button-for-practice-#{practice.id}", data: { turbo_method: :post }, class: "text-yellow-500 hover:text-yellow-400" do %>
+    <i class="bi bi-star"></i>
+  <% end %>
+<% end %>

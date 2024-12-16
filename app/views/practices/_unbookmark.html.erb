@@ -1,0 +1,5 @@
+<% @practices.each do |practice| %>
+  <%= link_to bookmark_path(current_user.bookmarks.find_by(practice_id: practice.id)), id: "unbookmark-button-for-practice-#{practice.id}", data: { turbo_method: :delete }, class: "text-yellow-500 hover:text-yellow-400" do %>
+    <i class="bi bi-star-fill"></i>
+  <% end %>
+<% end %>
