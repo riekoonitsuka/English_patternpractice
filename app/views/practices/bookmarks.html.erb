@@ -10,7 +10,12 @@
       </tr>
     </thead>
     <tbody>
-      <%= render @practices %>
+      <!-- row 1 -->
+      <% if @bookmark_practices.present? %>
+        <%= render @bookmark_practices %>
+      <% else %>
+        <p>No bookmarks</p>
+      <% end %>
     </tbody>
   </table>
 </div>

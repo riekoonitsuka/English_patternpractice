@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   }
 
   resources :practice_parts, only: %i[index new create show edit update destroy]
-  resources :practices, only: %i[index new create show edit update destroy]
-
+  resources :practices, only: %i[index new create show edit update destroy] do
+    collection do
+      get :bookmarks
+    end
+  end
+  resources :bookmarks, only: %i[create destroy]
   # "tasks#index"
   # resources :tasks
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

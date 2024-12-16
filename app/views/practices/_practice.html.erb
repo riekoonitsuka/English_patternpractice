@@ -1,0 +1,8 @@
+    <tr>
+      <th><%= practice.practice_part.number %></th>
+      <td><%= practice.practice_part.title %></td>
+      <td><%= practice.basic_english_sentence %></td>
+      <td><%= practice.question %></td>
+      <td><%= link_to "Play", practice_path(practice.id), method: :get, class: "btn" %></td>
+      <td><%= render "bookmark_buttons", { pracitce: practice } %></td>
+    </tr>

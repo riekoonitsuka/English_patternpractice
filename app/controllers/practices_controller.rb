@@ -48,6 +48,10 @@ class PracticesController < ApplicationController
     redirect_to practices_path, notice: "Question was successfully destroyed."
   end
 
+  def bookmarks
+    @bookmark_practices = current_user.bookmark_practices.includes(:practice_part).order(created_at: :asc)
+  end
+
   def practice_params
     params.require(:practice).permit(:basic_english_sentence, :basic_japanese_sentence, :question, :image, :difficulty_rating, answer)
   end
