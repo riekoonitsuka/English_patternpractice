@@ -2,16 +2,16 @@
   <table class="table">
     <!-- head -->
     <thead>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+      <% if @bookmark_practices.present? %>
       <tr>
         <th></th>
         <th>Part</th>
         <th>基本文</th>
         <th>条件</th>
       </tr>
-    </thead>
-    <tbody>
-      <!-- row 1 -->
-      <% if @bookmark_practices.present? %>
         <%= render @bookmark_practices %>
       <% else %>
         <p>No bookmarks</p>
