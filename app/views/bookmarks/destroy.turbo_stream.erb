@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "unbookmark-button-for-practice-#{@practice.id}" do %>
+  <%= render 'practices/bookmark', practice: @practice %>
+<% end %>
