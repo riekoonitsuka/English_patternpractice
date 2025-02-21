@@ -1,23 +1,25 @@
+<div class="p-20px text-center">
 <tr>
-<th>基本文<th>
-<th><%= @practice.basic_english_sentence %><th>
+<th class="text-center text-xl font-bold">基本文<th>
+<th class="text-center text-xl font-bold"><%= @practice.basic_english_sentence %><th>
 </tr>
 <tr>
-<th></th>
-<p><%= @practice.basic_japanese_sentence %></p>
+<th class="text-center text-xl font-bold"></th>
+<p class="text-center text-xl font-bold"><%= @practice.basic_japanese_sentence %></p>
 </tr>
 <tr>
-<th>条件<th>
-<th><%= @practice.question %><th>
+<th class="text-center text-xl font-bold">条件<th>
+<th class="text-center text-xl font-bold"><%= @practice.question %><th>
 </tr>
-<p><%= image_tag @practice.image_url %></p>
+<p class="mt-8 w-10/12 h-5/12"><%= image_tag @practice.image_url %></p>
 <% if params[:answer] %>
-  <p><%= @practice.answer %></p>
+  <p  class="text-center text-xl font-bold text-rose-400"><%= @practice.answer %></p>
 <% end %>
 <% if params[:answer] %>
-  <p><%= link_to "Next", practice_path(Practice.find_by(id: @practice.id+1)), method: :get, class: "btn" %></p>
+  <p class="block mr-auto ml-auto"><%= link_to "Next", practice_path(Practice.find_by(id: @practice.id+1)), method: :get, class: "btn" %></p>
 <% else %>
   <div class="flex space-x-4">
-    <p><%= link_to "Answer", practice_path(@practice.id, answer: true), method: :get, class: "btn" %></p>
+    <p class="block mr-auto ml-auto"><%= link_to "Answer", practice_path(@practice.id, answer: true), method: :get, class: "btn" %></p>
 </div>
 <% end %>
+</div>
