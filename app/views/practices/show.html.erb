@@ -9,9 +9,9 @@
 </tr>
 <tr>
 <th>条件<th>
-<th><span class="text-center text-2xl font-bold text-blue-500 pl-4"><%= @practice.question %><th>
+<th><span class="text-center text-2xl font-bold text-blue-500 pl-4"><%= @practice.question %></span><th>
 </tr>
-<p class="mt-8 w-8/12 h-3/12"><%= image_tag @practice.image_url, class: "w-full h-full object-contain" %></p>
+<div class="w-7/12 h-2/12 block mr-auto ml-auto"><%= image_tag @practice.image_url, class: "w-full h-full object-contain" %></div>
 <% if params[:answer] %>
   <p  class="text-center text-2xl font-bold text-rose-400 mb-12"><%= @practice.answer %></p>
 <% end %>
