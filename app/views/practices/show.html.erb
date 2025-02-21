@@ -1,19 +1,19 @@
-<div class="p-20px text-center">
+<div class="p-20px mt-12 text-center">
 <tr>
-<th class="text-center text-xl font-bold">基本文<th>
-<th class="text-center text-xl font-bold"><%= @practice.basic_english_sentence %><th>
+<th>基本文<th>
+<th><%= @practice.basic_english_sentence %><th>
 </tr>
 <tr>
-<th class="text-center text-xl font-bold"></th>
-<p class="text-center text-xl font-bold"><%= @practice.basic_japanese_sentence %></p>
+<th></th>
+<p class="text-center mb-12"><%= @practice.basic_japanese_sentence %></p>
 </tr>
 <tr>
-<th class="text-center text-xl font-bold">条件<th>
-<th class="text-center text-xl font-bold"><%= @practice.question %><th>
+<th>条件<th>
+<th><span class="text-center text-2xl font-bold text-blue-500"><%= @practice.question %><th>
 </tr>
-<p class="mt-8 w-10/12 h-5/12"><%= image_tag @practice.image_url %></p>
+<p class="mt-8 w-10/12 h-4/12"><%= image_tag @practice.image_url %></p>
 <% if params[:answer] %>
-  <p  class="text-center text-xl font-bold text-rose-400"><%= @practice.answer %></p>
+  <p  class="text-center text-2xl font-bold text-rose-400"><%= @practice.answer %></p>
 <% end %>
 <% if params[:answer] %>
   <p class="block mr-auto ml-auto"><%= link_to "Next", practice_path(Practice.find_by(id: @practice.id+1)), method: :get, class: "btn" %></p>
