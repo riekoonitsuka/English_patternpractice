@@ -10,7 +10,7 @@
 <tr>
 <th>条件<p class="text-center text-2xl font-bold text-blue-500"><%= @practice.question %></p></th>
 </tr>
-<div class="w-7/12 h-2/12 block mr-auto ml-auto -mt-4 -z-10"><%= image_tag @practice.image_url, class: "w-full h-full object-contain" %></div>
+<div class="w-7/12 h-2/12 block mr-auto ml-auto -z-10"><%= image_tag @practice.image_url, class: "w-full h-full object-contain" %></div>
 <% if params[:answer] %>
   <p  class="text-center text-2xl font-bold text-rose-400 mb-4 -mt-8"><%= @practice.answer %></p>
 <% end %>
